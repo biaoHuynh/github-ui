@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 
 import Tippy from '@tippyjs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import {
     faArrowRightFromBracket,
     faCircleQuestion,
@@ -12,6 +13,8 @@ import {
     faKeyboard,
 } from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css';
+
+import routesConfig from '~/config/routes';
 import Button from '~/component/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -91,9 +94,13 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok"></img>
+                    <Link to={routesConfig.home} className={cx('logo-link')}>
+                        <img src={images.logo} alt="Tiktok"></img>
+                    </Link>
                 </div>
+
                 <Search />
+
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
